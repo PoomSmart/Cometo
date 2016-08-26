@@ -156,26 +156,18 @@ def addPlanet(name, pos, v, requireColor, color, radii, mass):
     planet.label = _label
     planet.label.visible = planet_label
     planets.append(planet)
+    return planet
 
 # add planets to simulation
-addPlanet('mercury', (0.387 * dE, 0, 0), vector(0, 0, -1.607 * vE), true, color.gray(0.7), 0.383 * earth_radii, 0.0553 * earth_mass)
-mercury = planets[len(planets) - 1]
-addPlanet('venus', (0.723 * dE, 0, 0), vector(0, 0, -1.174 * vE), true, (1, 1, 0.5), 0.97 * earth_radii, 0.815 * earth_mass)
-venus = planets[len(planets) - 1]
-addPlanet('earth', (dE, 0, 0), vector(0, 0, -vE), false, None, earth_radii, earth_mass)
-earth = planets[len(planets) - 1]
+mercury = addPlanet('mercury', (0.387 * dE, 0, 0), vector(0, 0, -1.607 * vE), true, color.gray(0.7), 0.383 * earth_radii, 0.0553 * earth_mass)
+venus = addPlanet('venus', (0.723 * dE, 0, 0), vector(0, 0, -1.174 * vE), true, (1, 1, 0.5), 0.97 * earth_radii, 0.815 * earth_mass)
+earth = addPlanet('earth', (dE, 0, 0), vector(0, 0, -vE), false, None, earth_radii, earth_mass)
 earth.material = materials.earth
-addPlanet('mars', (1.52 * dE, 0, 0), vector(0, 0, -0.802 * vE), true, color.red, 0.532 * earth_radii, 0.107 * earth_mass)
-mars = planets[len(planets) - 1]
-addPlanet('jupiter', (-5.2 * dE, 0, 0), vector(0, 0, 0.434 * vE), false, color.orange, earth_radii * 11.209, 317.83 * earth_mass)
-jupiter = planets[len(planets) - 1]
-jupiter.material = materials.earth # hacky
-addPlanet('saturn', (0, 0, -9.58 * dE), vector(-0.323 * vE, 0, 0), true, color.yellow, earth_radii * 9.499, 95.16 * earth_mass)
-saturn = planets[len(planets) - 1]
-addPlanet('uranus', (19.20 * dE, 0, 0), vector(0, 0, -0.228 * vE), true, color.cyan, earth_radii * 4.007, 14.54 * earth_mass)
-uranus = planets[len(planets) - 1]
-addPlanet('neptune', (30.05 * dE, 0, 0), vector(0, 0, -0.182 * vE), true, color.blue, earth_radii * 3.883, 17.15 * earth_mass)
-neptune = planets[len(planets) - 1]
+mars = addPlanet('mars', (1.52 * dE, 0, 0), vector(0, 0, -0.802 * vE), true, color.red, 0.532 * earth_radii, 0.107 * earth_mass)
+jupiter = addPlanet('jupiter', (-5.2 * dE, 0, 0), vector(0, 0, 0.434 * vE), false, color.orange, earth_radii * 11.209, 317.83 * earth_mass)
+saturn = addPlanet('saturn', (0, 0, -9.58 * dE), vector(-0.323 * vE, 0, 0), true, color.yellow, earth_radii * 9.499, 95.16 * earth_mass)
+uranus = addPlanet('uranus', (19.20 * dE, 0, 0), vector(0, 0, -0.228 * vE), true, color.cyan, earth_radii * 4.007, 14.54 * earth_mass)
+neptune = addPlanet('neptune', (30.05 * dE, 0, 0), vector(0, 0, -0.182 * vE), true, color.blue, earth_radii * 3.883, 17.15 * earth_mass)
 
 # update perihelion of comet, update as current distance < current perihelion
 def updatePerihelion(obj):
