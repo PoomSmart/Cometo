@@ -704,7 +704,7 @@ def process(command):
 
 # control window
 class ControlWindow(threading.Thread):
-    def accept(self):
+    def accept(self, event=None):
         user_input = self.input.get()
         user_input_len = len(user_input)
         if user_input_len > 0:
